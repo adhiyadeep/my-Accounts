@@ -1,0 +1,97 @@
+<!--
+  Generated template for the EmployeesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton>
+
+    <button ion-button menuToggle icon-only style="display: block !important;">
+      <ion-icon name='menu'></ion-icon>
+    </button>
+
+    <ion-title> Employees</ion-title>
+  </ion-navbar>
+
+
+  <ion-segment [(ngModel)]="employee" color="black" (ionChange)="segmentChanged(employee)">
+    <ion-segment-button value="active">
+      <label>Active </label>
+    </ion-segment-button>
+    <ion-segment-button value="deactive">
+      <label>Deactive </label>
+    </ion-segment-button>
+  </ion-segment>
+
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+
+  <ion-row *ngFor="let employee of employeeList">
+
+    <ion-card>
+      <ion-row text-center>
+        <b> {{employee.name}} </b>
+      </ion-row>
+
+
+
+      <ion-row>
+        <ion-col col-1>
+          <ion-icon name="call"></ion-icon>
+        </ion-col>
+        <ion-col col-1>
+          :
+        </ion-col>
+        <ion-col col-10>
+          {{employee.phone}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-1>
+          <ion-icon name="mail"></ion-icon>
+        </ion-col>
+        <ion-col col-1>
+          :
+        </ion-col>
+        <ion-col col-10>
+          <a text-wrap> {{employee.emailid}} </a>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-1>
+          <ion-icon name="home"></ion-icon>
+        </ion-col>
+        <ion-col col-1>
+          :
+        </ion-col>
+        <ion-col col-10>
+          {{employee.companyname}}
+        </ion-col>
+      </ion-row>
+
+      <button ion-button *ngIf="activeStatus"  color="primary" (click)="changeStatus(employee.id,employee.discard)">Deactivate</button>
+      <button ion-button  *ngIf="deactiveStatus"  color="primary" (click)="changeStatus(employee.id,employee.discard)">Activate</button>
+
+    </ion-card>
+  </ion-row>
+
+  <ion-row *ngIf="noData">
+    {{message}}
+  </ion-row>
+
+
+</ion-content>
+
+
+<ion-footer>
+  <button ion-button full color="primary" (click)="addEmployee()">Add Employee</button>
+</ion-footer>

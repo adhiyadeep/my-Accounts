@@ -1,0 +1,111 @@
+<!--
+  Generated template for the CompanysPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton>
+
+    <button ion-button menuToggle icon-only style="display: block !important;">
+      <ion-icon name='menu'></ion-icon>
+    </button>
+
+    <ion-title>Add Company</ion-title>
+  </ion-navbar>
+
+  <ion-segment [(ngModel)]="company" color="primary" (ionChange)="segmentChanged(company)">
+    <ion-segment-button value="active">
+      Active
+    </ion-segment-button>
+    <ion-segment-button value="deactive">
+      Deactive
+    </ion-segment-button>
+
+  </ion-segment>
+
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row *ngIf="noData">
+    {{message}}
+  </ion-row>
+  
+
+
+  <ion-row *ngFor="let companies of companiesList">
+
+    <ion-card>
+      <ion-row text-center>
+        <b> {{companies.companyname}} </b>
+      </ion-row>
+
+
+
+      <ion-row>
+        <ion-col col-1>
+          <ion-icon name="call"></ion-icon>
+        </ion-col>
+        <ion-col col-1>
+          :
+        </ion-col>
+        <ion-col col-10>
+          {{companies.companyphone}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-1>
+          <ion-icon name="mail"></ion-icon>
+        </ion-col>
+        <ion-col col-1>
+          :
+        </ion-col>
+        <ion-col col-10>
+          <a text-wrap> {{companies.companyemailid}} </a>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-1>
+          <ion-icon name="home"></ion-icon>
+        </ion-col>
+        <ion-col col-1>
+          :
+        </ion-col>
+        <ion-col col-10>
+          {{companies.companyaddress}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-1>
+          <ion-icon name="locate"></ion-icon>
+        </ion-col>
+        <ion-col col-1>
+          :
+        </ion-col>
+        <ion-col col-10>
+          {{companies.companycity}}
+        </ion-col>
+      </ion-row>
+
+      <button ion-button *ngIf="activeStatus"  color="primary" (click)="changeStatus(companies.id,companies.discard)">Deactivate</button>
+      <button ion-button  *ngIf="deactiveStatus"  color="primary" (click)="changeStatus(companies.id,companies.discard)">Activate</button>
+
+    </ion-card>
+  </ion-row>
+
+
+
+ 
+
+
+</ion-content>
+
+<ion-footer>
+  <button ion-button full color="primary" (click)="addCompany()">Add Company</button>
+</ion-footer>

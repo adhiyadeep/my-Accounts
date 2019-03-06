@@ -1,0 +1,78 @@
+<!--
+  Generated template for the AddIncomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+      <ion-title>Add Expense</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <ion-item>
+      <ion-label>Amount</ion-label>
+      <ion-input type="number" [(ngModel)]="data.amount" name="Amount"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Payment Mode</ion-label>
+      <ion-select [(ngModel)]="data.modeofpayment" (ionChange)="onPaymodeChange($event)">
+        <ion-option value="Cash">Cash</ion-option>
+        <ion-option value="Cheque">Cheque</ion-option>
+        <ion-option value="Credit Card">Credit Card</ion-option>
+        <ion-option value="Debit Card">Debit Card</ion-option>
+        <ion-option value="Net Banking">Net Banking</ion-option>
+        <ion-option value="Others">Others</ion-option>
+        <ion-option value="Paytm">Pay TM</ion-option>
+  
+      </ion-select>
+    </ion-item>
+    
+    <ion-row *ngIf="hideBankInfo">
+        <ion-item>
+            <ion-label>Cheque No</ion-label>
+            <ion-input type="text" [(ngModel)]="data.chequeno" name="Cheque No"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label>Bank Name</ion-label>
+            <ion-input type="text" [(ngModel)]="data.bankname" name="Bank Name"></ion-input>
+          </ion-item>
+        
+    </ion-row>
+   
+    <ion-item>
+      <ion-label>Bill No</ion-label>
+      <ion-input type="text" [(ngModel)]="data.billno"  name="title"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Bill Date</ion-label>
+     <ion-datetime displayFormat="DD-MM-YYYY" [(ngModel)]="data.billdate" (ionChange)="dateChanged(data.billdate)" pickerFormat="DD/MM/YYYY"></ion-datetime> 
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Given to</ion-label>
+      <ion-input [(ngModel)]="data.givento" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Purpose</ion-label>
+      <ion-input [(ngModel)]="data.purpose" type="text" name="Purpose"></ion-input>
+    </ion-item>
+  
+  
+    <ion-item>
+      <ion-label>Remarks</ion-label>
+      <ion-input [(ngModel)]="data.remarks" type="text" name="Remarks"></ion-input>
+    </ion-item>
+  
+  
+  
+    <button ion-button block outline color="primary" (click)="addExpenseData()">Submit</button>
+  
+  
+  </ion-content>

@@ -1,0 +1,99 @@
+<!--
+  Generated template for the IncomemodeWisePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Income Mode Wise</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row style="border: 1px solid gray;">
+    <ion-col col-6 text-center>
+      Cash
+    </ion-col>
+    <ion-col col-6 text-center>
+      {{cashTotal  |currency : '₹ ': true:"1.0"}}
+    </ion-col>
+   
+  </ion-row>
+
+  <ion-row style="border: 1px solid gray;">
+    <ion-col col-6 text-center>
+      Cheque
+    </ion-col>
+    <ion-col col-6 text-center>
+      {{chequeTotal |currency : '₹ ': true:"1.0"}}
+    </ion-col>
+  
+  </ion-row>
+
+  <ion-row style="border: 1px solid gray;">
+    <ion-col col-6 text-center>
+      Credit Card
+    </ion-col>
+    <ion-col col-6 text-center>
+      {{cCardTotal |currency : '₹ ': true:"1.0"}}
+    </ion-col>
+  
+  </ion-row>
+
+  <ion-row style="border: 1px solid gray;">
+    <ion-col col-6 text-center>
+      Debit Card
+    </ion-col>
+    <ion-col col-6 text-center>
+      {{dCardTotal |currency : '₹ ': true:"1.0"}}
+    </ion-col>
+    
+  </ion-row>
+
+  <ion-row style="border: 1px solid gray;">
+    <ion-col col-6 text-center>
+      Net Banking
+    </ion-col>
+    <ion-col col-6 text-center>
+      {{netBankingTotal |currency : '₹ ': true:"1.0"}}
+    </ion-col>
+    
+    
+  </ion-row>
+
+  <ion-row style="border: 1px solid gray;">
+    <ion-col col-6 text-center>
+      Others
+    </ion-col>
+    <ion-col col-6 text-center>
+      {{othersTotal |currency : '₹ ': true:"1.0"}}
+    </ion-col>
+   
+  
+  </ion-row>
+
+  <ion-row style="border: 1px solid gray;">
+    <ion-col col-6 text-center>
+      PayTM
+    </ion-col>
+    <ion-col col-6 text-center>
+      {{paytmTotal |currency : '₹ ': true:"1.0"}}
+    </ion-col>
+  
+  </ion-row>
+  
+  <ion-row style="border: 1px solid gray;">
+      <ion-col col-6 text-center>
+        Total
+      </ion-col>
+      <ion-col col-6 text-center>
+        {{total |currency : '₹ ': true:"1.0"}}
+      </ion-col>
+      
+    
+    </ion-row>
+  
+
+</ion-content>
